@@ -1,8 +1,8 @@
 spring:
   mail:
     host: smtp.gmail.com
-    username: cankatsezer55@gmail.com
-    password: 1793258Cc
+    username: apptestcankatsezer@gmail.com
+    password: 123456789appTest
     properties:
       smtp:
         auth= true
