@@ -28,7 +28,7 @@ public class UserService implements IUserService {
                 registration.getEmail(),
                 passwordEncoder.encode(registration.getPassword()),
                 Arrays.asList(new Role("ROLE_USER")));
-        return userRepository.save(user); //TODO burası böyle mi olacak idk
+        return userRepository.save(user);
     }
 
     @Override
