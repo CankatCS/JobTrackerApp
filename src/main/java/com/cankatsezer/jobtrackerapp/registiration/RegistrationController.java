@@ -37,12 +37,13 @@ public class RegistrationController {
         return "redirect:/registration/registration-form?success";
     }
 
+    @GetMapping("/verifyEmail")
     public String verifyEmail(@RequestParam("token") String token) {
         Optional<VerificationToken> theToken = verificationTokenService.findByVerificationToken(token);
         if (theToken.isPresent() && theToken.get().getUser().isEnabled()) {
             return "redirect:/login?verified";
         }
-        String verificationResult = verificationTokenService.validateToken(theToken.get().getToken()); //TODO HATALI GİBİ
+        String verificationResult = verificationTokenService.validateToken(token); //TODO HATALI GİBİ
         if (verificationResult.equalsIgnoreCase("invalid")) {
             return "redirect:/error?invalid";
         } else if (verificationResult.equalsIgnoreCase("expired")) {

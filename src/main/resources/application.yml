@@ -1,4 +1,13 @@
 spring:
+  mail:
+    host: smtp.gmail.com
+    username: cankatsezer55@gmail.com
+    password: 1793258Cc
+    properties:
+      smtp:
+        auth= true
+        starttls.enable= true
+        starttls.required= true
   datasource:
     url: jdbc:mysql://localhost:3306/job_track_db
     username: root
@@ -8,3 +17,4 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+

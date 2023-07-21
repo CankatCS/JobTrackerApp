@@ -27,7 +27,7 @@ public class RegistrationCompleteEventListener implements ApplicationListener<Re
         user = event.getUser();
         String token = UUID.randomUUID().toString();
         verificationTokenService.saveVerificationTokenForUser(user, token);
-        String url = event.getConfirmationUrl() + "/registration/verifyEmail?token" + token;
+        String url = event.getConfirmationUrl() + "/registration/verifyEmail?token=" + token;
         try {
             sendVerificationEmail(url);
         } catch (MessagingException | UnsupportedEncodingException e) {
