@@ -9,43 +9,42 @@
           crossorigin="anonymous">
 </head>
 <body>
-<div
-        class="container col-md-offset-3 col-md-8 mt-lg-5">
+<div class="container col-md-offset-3 col-md-8 mt-lg-5">
     <div class="row mt-2">
         <div th:if="${param.success}">
             Registration successful, please check your email to complete your registration.
         </div>
-        <div class="m-2"> User Registration Form</div>
+        <div class="m-4">User Registration Form</div>
     </div>
-    <form>
-            <div class="mb-2 row">
+    <form th:action="@{/registration/register}" method="post" th:object="${user}" class="px-4">
+        <div class="mb-2 row">
             <label for="firstName" class="col-sm-2 col-form-label">First Name</label>
             <div class="col-sm-6">
                 <input type="text" id="firstName" autofocus="autofocus"
-                       class="form-control" ,required name="firstName" , th:field="@{firstName}">
+                       class="form-control" required name="firstName" th:field="*{firstName}">
             </div>
-            <div class="mb-3 row">
-                <label for="lastName" class="col-sm-2 col-form-label">Last Name</label>
-                <div class="col-sm-6">
-                    <input type="text" id="lastName" autofocus="autofocus"
-                           class="form-control" ,required name="lastName" , th:field="@{lastName}">
-                </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="lastName" class="col-sm-2 col-form-label">Last Name</label>
+            <div class="col-sm-6">
+                <input type="text" id="lastName" autofocus="autofocus"
+                       class="form-control" required name="lastName" th:field="*{lastName}">
             </div>
-            <div class="mb-3 row">
-                <label for="email" class="col-sm-2 col-form-label">Email</label>
-                <div class="col-sm-6">
-                    <input type="text" id="email" autofocus="autofocus"
-                           class="form-control" ,required name="email" , th:field="@{email}">
-                </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="email" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-6">
+                <input type="text" id="email" autofocus="autofocus"
+                       class="form-control" required name="email" th:field="*{email}">
             </div>
-            <div class="mb-3 row">
-                <label for="password" class="col-sm-2 col-form-label">Password</label>
-                <div class="col-sm-6">
-                    <input type="password" id="password" autofocus="autofocus"
-                           class="form-control" ,required name="password" , th:field="@{password}">
-                </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="password" class="col-sm-2 col-form-label">Password</label>
+            <div class="col-sm-6">
+                <input type="password" id="password" autofocus="autofocus"
+                       class="form-control" required name="password" th:field="*{password}">
             </div>
-            </div>
+        </div>
         <div>
             <button type="submit" class="btn btn-success">Register</button>
             <span>Registered already? <a href="/" th:href="@{authenticate/login-form}">

@@ -29,7 +29,7 @@ public class RegistrationController {
     @PostMapping("/register")
     public String registerUser(@ModelAttribute("user") RegistrationRequest registration) {
         User user = userService.registerUser(registration);
-        publisher.publishEvent(new RegistrationCompleteEvent(user, ""));
+//        publisher.publishEvent(new RegistrationCompleteEvent(user, ""));
         return "redirect:/registration/registration-form?success";
     }
 }
