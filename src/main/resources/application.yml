@@ -1,13 +1,15 @@
 spring:
   mail:
     host: smtp.gmail.com
-    username: apptestcankatsezer@gmail.com
-    password: 123456789appTest
+    username: cankatsezer55@gmail.com
+    password: vtykyyfpevdovkyw
     properties:
-      smtp:
-        auth= true
-        starttls.enable= true
-        starttls.required= true
+      mail:
+        smtp:
+          auth: true
+          starttls.enable: true
+          starttls.required: true
+    port: 587
   datasource:
     url: jdbc:mysql://localhost:3306/job_track_db
     username: root
@@ -15,6 +17,6 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     show-sql: true
 
